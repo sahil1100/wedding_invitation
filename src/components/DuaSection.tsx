@@ -5,22 +5,22 @@ import { KhatimStar, ArabesqueDivider } from './ArabesqueIcons';
 
 export const DuaSection: React.FC = () => {
   return (
-    <section id="dua-card" className="relative py-20 px-4 sm:px-6 overflow-hidden text-center">
+    <section id="dua-card" className="relative py-5 sm:py-6 px-4 sm:px-6 overflow-hidden text-center">
       <div className="relative max-w-[480px] mx-auto z-10">
         {/* Subtle decorative arch frame */}
         <motion.div
-          className="p-8 sm:p-10 rounded-3xl bg-[#FDFBF7] border border-[#E6DCCE] shadow-[0_10px_35px_rgba(74,62,52,0.07)] relative"
+          className="p-5 sm:p-6 rounded-3xl bg-[#FDFBF7] border border-[#E6DCCE] shadow-[0_10px_35px_rgba(74,62,52,0.07)] relative"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 1.2, ease: 'easeOut' }}
         >
           {/* Top Star */}
-          <div className="flex justify-center mb-5">
-            <KhatimStar className="w-6 h-6 text-[#8C6E36]" stroke="#8C6E36" strokeWidth="1.2" />
+          <div className="flex justify-center mb-2.5">
+            <KhatimStar className="w-5 h-5 text-[#8C6E36]" stroke="#8C6E36" strokeWidth="1.2" />
           </div>
 
-          <span className="font-ui text-[10px] uppercase tracking-[0.3em] text-[#8C6E36] font-medium block mb-4">
+          <span className="font-ui text-[10px] uppercase tracking-[0.3em] text-[#8C6E36] font-medium block mb-2">
             The Prophetic Blessing
           </span>
 
@@ -33,10 +33,10 @@ export const DuaSection: React.FC = () => {
             {CONFIG.islamicContent.barakahDuaArabic}
           </p>
 
-          <ArabesqueDivider className="w-32 h-4 my-5 opacity-60" />
+          <ArabesqueDivider className="w-32 h-4 my-2.5 opacity-60" />
 
           {/* Transliteration */}
-          <p className="font-display italic text-sm sm:text-base text-[#7A5F28] tracking-wider mb-2">
+          <p className="font-display italic text-sm sm:text-base text-[#7A5F28] tracking-wider mb-1.5">
             &ldquo;{CONFIG.islamicContent.barakahDuaTransliteration}&rdquo;
           </p>
 

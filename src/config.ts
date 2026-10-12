@@ -8,18 +8,9 @@ import { EventItem, FamilyContact } from './types';
  * WhatsApp RSVP contacts, and Google Sheets submission endpoint.
  */
 export const CONFIG = {
-  // COUPLE DETAILS
+  // COUPLE DETAILS (Bride's Side: Siddiqa & Mo. Sahil)
   couple: {
     monogram: "S & S",
-    groom: {
-      fullName: "Mo Sahil Doi",
-      shortName: "Sahil",
-      father: "Mo Basit Doi",
-      mother: "Sayera Doi",
-      parentsTitle: "Son of Mo Basit Doi & Sayera Doi",
-      bio: "An architect of thoughtful experiences, devoted to faith, family, and lifelong companionship.",
-      photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop", // [SWAP: Groom Portrait]
-    },
     bride: {
       fullName: "Siddiqa Panchbhaiya",
       shortName: "Siddiqa",
@@ -27,17 +18,26 @@ export const CONFIG = {
       mother: "Zarina Panchbhaiya",
       parentsTitle: "Daughter of Mo Yusuf Panchbhaiya & Zarina Panchbhaiya",
       bio: "A soul of gentleness and artistic grace, walking toward this new chapter with trust in Allah.",
-      photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop", // [SWAP: Bride Portrait]
+      photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=800&auto=format&fit=crop",
+    },
+    groom: {
+      fullName: "Mo. Sahil Doi",
+      shortName: "Mo. Sahil",
+      father: "Mo Basit Doi",
+      mother: "Sayera Doi",
+      parentsTitle: "Son of Mo Basit Doi & Sayera Doi",
+      bio: "Devoted to faith, family, and lifelong companionship.",
+      photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=800&auto=format&fit=crop",
     },
   },
 
-  // HOSTING FAMILIES
+  // HOSTING FAMILIES (Bride's Side: The Panchbhaiya Family (Nadisan wala))
   hosts: {
     announcementHeadline: "Alhamdulillah",
     announcementText:
-      "With the blessings of Allah (SWT) and our cherished families, the Doi and Panchbhaiya families joyfully invite you to celebrate the union of their beloved children.",
-    groomFamily: "The Doi Family",
-    brideFamily: "The Panchbhaiya Family",
+      "With the divine blessings of Almighty Allah (SWT) and our cherished elders, the Panchbhaiya Family (Nadisan wala) joyfully invites you to celebrate the wedding festivities of their beloved daughter Siddiqa with Mo. Sahil.",
+    brideFamily: "The Panchbhaiya Family (Nadisan wala)",
+    invitationSubtitle: "Bride's Side Wedding Invitation",
   },
 
   // NIKAH DATE FOR COUNTDOWN (Sat 14 Nov 2026, 9:00 AM)
@@ -112,6 +112,11 @@ export const CONFIG = {
     bismillahTransliteration: "Bismillahir Rahmanir Rahim",
     bismillahEnglish: "In the name of Allah, the Most Gracious, the Most Merciful",
 
+    azwajaArabic: "وَخَلَقْنَاكُمْ أَزْوَاجًا",
+    azwajaTransliteration: "Wa-khalaqnakum azwaja",
+    azwajaEnglish: "And We created you in pairs",
+    azwajaReference: "Surah An-Naba · 78:8",
+
     quranArabic: "وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً",
     quranReference: "Surah Ar-Rum · 30:21",
     quranEnglish: "And among His signs is that He created for you mates from among yourselves, that you may dwell in tranquillity with them, and He has placed between you love and mercy.",
@@ -128,21 +133,15 @@ export const CONFIG = {
   // FAMILY CONTACT NUMBERS FOR GUEST INQUIRIES
   contacts: [
     {
-      side: "Groom",
-      name: "Mo Basit Doi",
-      relation: "Groom's Father",
-      phone: "+91 98765 43210",
-    },
-    {
       side: "Bride",
       name: "Mo Yusuf Panchbhaiya",
       relation: "Bride's Father",
       phone: "+91 91234 56789",
     },
     {
-      side: "Groom",
-      name: "Doi Family Helpdesk",
-      relation: "Guest Logistics & Stay",
+      side: "Bride",
+      name: "Panchbhaiya Family Helpdesk (Nadisan wala)",
+      relation: "Guest Hospitality & Stay",
       phone: "+91 99887 76655",
     },
   ] as FamilyContact[],
@@ -150,9 +149,9 @@ export const CONFIG = {
   // OPTIONAL GIFT / EIDI / DUAS NOTE
   gifts: {
     note: "Your heartfelt prayers, duas, and gracious presence are the greatest gifts we could ever ask for.",
-    optionalUpiId: "sahildoi@okhdfcbank",
+    optionalUpiId: "siddiqap@okhdfcbank",
     bankName: "HDFC Bank Ltd.",
-    accountHolder: "Mo Sahil Doi & Siddiqa Panchbhaiya",
+    accountHolder: "Siddiqa Panchbhaiya",
     accountNumber: "50100234891234",
     ifscCode: "HDFC0001234",
   },

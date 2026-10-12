@@ -99,7 +99,7 @@ export const HeroSection: React.FC = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-[92vh] sm:min-h-screen flex flex-col items-center justify-center px-4 py-12 overflow-hidden text-center"
+      className="relative flex flex-col items-center justify-center px-3 sm:px-4 py-4 sm:py-5 overflow-hidden text-center"
     >
       {/* Soft warm linen atmosphere with gentle champagne ambient lighting */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -124,7 +124,7 @@ export const HeroSection: React.FC = () => {
       />
 
       {/* Main Arch-Framed Container - Soft Alabaster Ivory Card */}
-      <div className="relative z-20 w-full max-w-[480px] mx-auto flex flex-col items-center justify-center px-4 py-8 sm:p-8 bg-[#FDFBF7]/95 backdrop-blur-md rounded-3xl shadow-[0_15px_50px_rgba(74,62,52,0.07),0_0_20px_rgba(184,151,88,0.1)] border border-[#E6DCCE]">
+      <div className="relative z-20 w-full max-w-[480px] mx-auto flex flex-col items-center justify-center px-4 py-5 sm:py-6 bg-[#FDFBF7]/95 backdrop-blur-md rounded-3xl shadow-[0_15px_50px_rgba(74,62,52,0.07),0_0_20px_rgba(184,151,88,0.1)] border border-[#E6DCCE]">
         {/* Hand-drawn SVG Arabesque Frame with antique champagne gold */}
         <svg
           className="absolute inset-0 w-full h-full pointer-events-none overflow-visible"
@@ -175,17 +175,17 @@ export const HeroSection: React.FC = () => {
 
         {/* Top Sacred Symbol & Monogram */}
         <motion.div
-          className="mb-3"
+          className="mb-2"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
         >
-          <MonogramRoundel size={76} className="w-18 h-18 sm:w-20 sm:h-20" />
+          <MonogramRoundel size={72} className="w-16 h-16 sm:w-18 sm:h-18" />
         </motion.div>
 
         {/* 1. Bismillah Calligraphy (Deep rich espresso) */}
         <motion.div
-          className="mb-3"
+          className="mb-2"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.1, delay: 0.6 }}
@@ -204,7 +204,7 @@ export const HeroSection: React.FC = () => {
 
         {/* Micro Invitation Header */}
         <motion.div
-          className="flex items-center justify-center gap-2 mb-2"
+          className="flex items-center justify-center gap-2 mb-1.5"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.9, duration: 0.8 }}
@@ -216,21 +216,25 @@ export const HeroSection: React.FC = () => {
           <KhatimStar className="w-3.5 h-3.5 text-[#B89758]" stroke="#B89758" />
         </motion.div>
 
-        {/* 2. Names of the Couple: Guaranteed Single Line & Elegant Sizing */}
-        <div className="my-2 sm:my-3 w-full px-2">
-          {/* Groom's Name */}
+        {/* 2. Names of the Couple: Siddiqa & Mo. Sahil */}
+        <div className="my-1.5 sm:my-2 w-full px-2">
+          {/* Bride's Name First */}
           <motion.h2
-            className="font-display text-xl sm:text-2xl md:text-3xl lg:text-[32px] text-[#2B2118] font-normal tracking-[0.05em] sm:tracking-[0.08em] leading-tight whitespace-nowrap overflow-hidden text-ellipsis"
+            className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-[34px] text-[#2B2118] font-normal tracking-[0.04em] leading-tight whitespace-nowrap overflow-hidden text-ellipsis"
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.1, ease: [0.22, 1, 0.36, 1] }}
           >
-            {CONFIG.couple.groom.fullName}
+            {CONFIG.couple.bride.fullName}
           </motion.h2>
+
+          <p className="font-ui text-[11px] sm:text-xs text-[#8C6E36] tracking-wider mt-0.5 font-medium">
+            {CONFIG.couple.bride.parentsTitle}
+          </p>
 
           {/* Gold Ampersand Ligature */}
           <motion.div
-            className="my-1 sm:my-1.5 flex items-center justify-center gap-3 sm:gap-4"
+            className="my-1 flex items-center justify-center gap-3 sm:gap-4"
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 1.4, duration: 0.7 }}
@@ -242,22 +246,22 @@ export const HeroSection: React.FC = () => {
             <span className="h-px w-10 sm:w-16 bg-gradient-to-l from-transparent to-[#B89758]" />
           </motion.div>
 
-          {/* Bride's Name - Sized and styled so it NEVER breaks into 2 lines */}
+          {/* Groom's Name: Mo. Sahil Doi */}
           <motion.h2
-            className="font-display text-lg sm:text-2xl md:text-3xl lg:text-[30px] text-[#2B2118] font-normal tracking-[0.03em] sm:tracking-[0.06em] leading-tight whitespace-nowrap overflow-hidden text-ellipsis"
+            className="font-display text-xl sm:text-2xl md:text-3xl lg:text-[30px] text-[#4A3E34] font-normal tracking-[0.03em] leading-tight whitespace-nowrap overflow-hidden text-ellipsis"
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.6, ease: [0.22, 1, 0.36, 1] }}
           >
-            {CONFIG.couple.bride.fullName}
+            {CONFIG.couple.groom.fullName}
           </motion.h2>
         </div>
 
-        <ArabesqueDivider className="w-44 h-5 my-2.5 opacity-60" />
+        <ArabesqueDivider className="w-44 h-5 my-1.5 opacity-60" />
 
         {/* 3. The Date & Venue Highlights */}
         <motion.div
-          className="mt-1 space-y-1"
+          className="mt-0.5 space-y-0.5"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2.0, duration: 0.9 }}
@@ -276,7 +280,7 @@ export const HeroSection: React.FC = () => {
         {/* Floating Scroll Cue */}
         <motion.a
           href="#announcement"
-          className="mt-6 sm:mt-8 flex flex-col items-center gap-1.5 text-[#8C6E36] hover:text-[#543E15] transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-[#B89758]"
+          className="mt-4 sm:mt-5 flex flex-col items-center gap-1 text-[#8C6E36] hover:text-[#543E15] transition-colors focus:outline-none focus-visible:ring-1 focus-visible:ring-[#B89758]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, y: [0, 6, 0] }}
           transition={{

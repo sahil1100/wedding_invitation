@@ -107,36 +107,21 @@ export const EnvelopePreloader: React.FC<EnvelopePreloaderProps> = ({ onOpened, 
 
           {/* 3. Main Center Stage (Preloader Card & Envelope) */}
           <div className="relative w-full max-w-[390px] sm:max-w-[430px] flex flex-col items-center justify-center">
-            {/* Header: Sacred Bismillah & Royal Proclamation */}
+            {/* Header: Sacred Proclamation */}
             <motion.div
-              className="text-center mb-5 sm:mb-6 z-20"
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.15 }}
+              className="text-center mb-6 sm:mb-8 z-20"
+              initial={{ opacity: 0, y: -15 }}
+              animate={{
+                opacity: opening ? 0 : 1,
+                y: opening ? -25 : 0,
+              }}
+              transition={{ duration: 0.5, ease: 'easeInOut' }}
             >
-              <div className="flex items-center justify-center gap-2 mb-1.5">
-                <KhatimStar className="w-3.5 h-3.5 text-[#B89758]" stroke="#B89758" />
-                <span className="font-ui text-[10px] sm:text-[11px] uppercase tracking-[0.32em] text-[#8C6E36] font-medium">
-                  A Sacred Union
-                </span>
-                <KhatimStar className="w-3.5 h-3.5 text-[#B89758]" stroke="#B89758" />
-              </div>
-
-              {/* Bismillah Calligraphy */}
-              <h1
-                dir="rtl"
-                lang="ar"
-                className="font-arabic text-2xl sm:text-3xl text-[#2B2118] leading-relaxed drop-shadow-[0_1px_4px_rgba(184,151,88,0.15)] my-1"
-              >
-                بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
-              </h1>
-
-              {/* Couple's Names */}
-              <p className="font-display text-2xl sm:text-3xl text-[#2B2118] font-light tracking-wide mt-1">
-                Mo Sahil &amp; Siddiqa
+              <p className="font-display text-xl sm:text-2xl text-[#2B2118] font-normal tracking-wide">
+                The Panchbhaiya Family (Nadisan wala)
               </p>
               <p className="font-ui text-xs text-[#6B5D52] tracking-wider mt-0.5 font-light">
-                Solemnization of Nikah · November 2026
+                Solemnization of Auspicious Nikah · November 2026
               </p>
             </motion.div>
 
@@ -170,44 +155,47 @@ export const EnvelopePreloader: React.FC<EnvelopePreloaderProps> = ({ onOpened, 
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#E4D8C6]/50 to-[#DFD2BE]" />
               </div>
 
-              {/* Emerging Wedding Invitation Letter (Deep Inside Pocket -> Glides Upwards on Open) */}
+              {/* Emerging Wedding Invitation Letter (Deep Inside Pocket -> Glides Upwards on Open gracefully) */}
               <motion.div
-                className="absolute w-[90%] sm:w-[92%] h-[90%] bg-[#FDFBF7] rounded-xl p-4 sm:p-5 shadow-xl flex flex-col items-center justify-between border border-[#D8CBB6] text-center z-10"
+                className="absolute w-[90%] sm:w-[92%] h-[88%] bg-[#FDFBF7] rounded-xl p-4 sm:p-5 shadow-xl flex flex-col items-center justify-between border border-[#D8CBB6] text-center z-10"
                 style={{
                   boxShadow: '0 10px 30px rgba(74,62,52,0.12), 0 0 15px rgba(197,168,105,0.15)',
                 }}
-                initial={{ y: 8, scale: 0.96 }}
+                initial={{ y: 15, scale: 0.95 }}
                 animate={
                   cardRevealed
-                    ? { y: -125, scale: 1.02, transition: { duration: 1.1, ease: [0.16, 1, 0.3, 1] } }
-                    : { y: 8, scale: 0.96 }
+                    ? { y: -75, scale: 1.02, transition: { duration: 1.0, ease: [0.16, 1, 0.3, 1] } }
+                    : { y: 15, scale: 0.95 }
                 }
               >
                 {/* Gilded Inner Card Frame */}
-                <div className="w-full h-full border border-[#D8CBB6] rounded-lg p-2 flex flex-col items-center justify-between relative bg-[#FDFBF7]">
+                <div className="w-full h-full border border-[#D8CBB6] rounded-lg p-2.5 flex flex-col items-center justify-between relative bg-[#FDFBF7]">
                   {/* Top Bismillah */}
                   <div>
-                    <span className="font-arabic text-sm text-[#2B2118] block font-medium">بِسْمِ اللَّهِ</span>
+                    <span className="font-arabic text-sm sm:text-base text-[#2B2118] block font-medium">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</span>
                     <span className="font-ui text-[8px] sm:text-[9px] uppercase tracking-[0.25em] text-[#8C6E36] font-semibold block mt-0.5">
-                      Solemnization of Nikah
+                      The Panchbhaiya Family (Nadisan wala)
                     </span>
                   </div>
 
-                  {/* Names of Groom & Bride - Single Line Guaranteed */}
+                  {/* Names of Bride & Groom - Siddiqa & Mo. Sahil */}
                   <div className="my-auto py-1">
-                    <p className="font-display text-base sm:text-lg text-[#2B2118] font-medium leading-tight whitespace-nowrap">
-                      Mo Sahil Doi
-                    </p>
-                    <p className="font-display italic text-xs text-[#8C6E36] my-0.5">&amp;</p>
                     <p className="font-display text-base sm:text-lg text-[#2B2118] font-medium leading-tight whitespace-nowrap">
                       Siddiqa Panchbhaiya
                     </p>
+                    <p className="font-display italic text-xs text-[#8C6E36] my-0.5">&amp;</p>
+                    <p className="font-display text-base sm:text-lg text-[#2B2118] font-medium leading-tight whitespace-nowrap">
+                      Mo. Sahil Doi
+                    </p>
                   </div>
 
-                  {/* Dates & Dua */}
-                  <div className="border-t border-[#E8DFC8] pt-1 w-full">
+                  {/* Dates & Venue */}
+                  <div className="border-t border-[#E8DFC8] pt-1.5 w-full">
                     <p className="font-ui text-[9px] uppercase tracking-[0.2em] text-[#5C4E43] font-medium">
                       Insha Allah · 12–14 November 2026
+                    </p>
+                    <p className="font-ui text-[8px] text-[#8C6E36] tracking-wider mt-0.5">
+                      Anjuman Street, Pologround · Himatnagar
                     </p>
                   </div>
                 </div>
@@ -436,29 +424,14 @@ export const EnvelopePreloader: React.FC<EnvelopePreloaderProps> = ({ onOpened, 
               </div>
             </div>
 
-            {/* 5. Elegant Call-To-Action Pill & Audio Guidance */}
+            {/* Subtle Date & City Note */}
             <motion.div
-              className="text-center mt-7 sm:mt-8 z-20"
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.35, duration: 0.8 }}
+              className="text-center mt-6 z-20"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: opening ? 0 : 1 }}
+              transition={{ duration: 0.4 }}
             >
-              <button
-                type="button"
-                onClick={handleOpen}
-                disabled={opening}
-                className="inline-flex items-center gap-2.5 px-6 sm:px-7 py-3 rounded-full bg-[#EDE4D4] hover:bg-[#E5DBC9] border border-[#B89758]/50 text-[#2B2118] font-ui text-xs sm:text-sm tracking-[0.25em] uppercase shadow-[0_4px_20px_rgba(74,62,52,0.08)] hover:shadow-[0_6px_25px_rgba(184,151,88,0.25)] active:scale-[0.98] transition-all duration-300 group cursor-pointer"
-              >
-                <span className="w-2 h-2 rounded-full bg-[#B89758] animate-pulse" />
-                <span className="font-medium text-[#2B2118] transition-colors">
-                  Break Royal Seal &amp; Enter
-                </span>
-                <span className="text-[#8C6E36] text-base group-hover:translate-x-1 transition-transform">
-                  &rarr;
-                </span>
-              </button>
-
-              <p className="font-ui text-[10px] sm:text-[11px] text-[#6B5D52] mt-3 tracking-wider font-light">
+              <p className="font-ui text-[11px] text-[#8C6E36] tracking-widest uppercase font-light">
                 Insha Allah · 12–14 November 2026 · Himatnagar
               </p>
             </motion.div>
