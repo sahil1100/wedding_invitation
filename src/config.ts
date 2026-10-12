@@ -168,4 +168,12 @@ export const CONFIG = {
     ivoryText: "#F7F1E6",
     mutedSage: "#7E8B72",
   },
+
+  // ROMANTIC WEDDING AMBIENT MUSIC (Hollywood & Bollywood Piano)
+  audio: {
+    title: "River Flows In You · Romantic Wedding Piano",
+    src: "/assets/river_flows_in_you.mp3",
+    // Bollywood alternative also included: "/assets/bollywood_romantic_melody.mp3"
+    targetVolume: 0.5,
+  },
 };

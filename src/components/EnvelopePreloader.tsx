@@ -31,6 +31,9 @@ export const EnvelopePreloader: React.FC<EnvelopePreloaderProps> = ({ onOpened, 
     // Play tactile wax crack & harmonic chime immediately
     weddingAudio.playSealCrackSound();
 
+    // Start serene ambient wedding oud & drone
+    weddingAudio.startAudio();
+
     // Generate burst particles from the seal center
     const newParticles: Particle[] = Array.from({ length: 18 }, (_, i) => ({
       id: i,
