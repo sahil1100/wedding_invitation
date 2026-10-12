@@ -47,13 +47,13 @@ export function MonogramRoundel({
     >
       <defs>
         <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#8A6D33" />
-          <stop offset="35%" stopColor="#D4BC8B" />
-          <stop offset="70%" stopColor="#B89758" />
-          <stop offset="100%" stopColor="#6E5322" />
+          <stop offset="0%" stopColor="#C49B30" />
+          <stop offset="35%" stopColor="#F5DE93" />
+          <stop offset="70%" stopColor="#D4AF37" />
+          <stop offset="100%" stopColor="#8E6C1D" />
         </linearGradient>
         <filter id="goldShadow" x="-20%" y="-20%" width="140%" height="140%">
-          <feDropShadow dx="0" dy="1.5" stdDeviation="2" floodColor="#B89758" floodOpacity="0.25" />
+          <feDropShadow dx="0" dy="2" stdDeviation="3" floodColor="#D4AF37" floodOpacity="0.4" />
         </filter>
       </defs>
 
@@ -305,6 +305,28 @@ export function FestiveLanternIcon({ className = "w-8 h-8" }: { className?: stri
       {/* Base Pedestal */}
       <path d="M 25,46 L 39,46 L 37,50 L 27,50 Z" fill="currentColor" opacity="0.6" />
       <circle cx="32" cy="54" r="2" fill="currentColor" />
+    </svg>
+  );
+}
+
+/**
+ * Event Icon: Friends Gathering / Brotherhood Celebration
+ */
+export function FriendsCelebrationIcon({ className = "w-8 h-8" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 64 64" className={className} fill="none" stroke="currentColor" strokeWidth="1.5">
+      {/* Dynamic Celebration Stars & Brotherhood Crest */}
+      <circle cx="32" cy="32" r="27" strokeDasharray="3 3" opacity="0.45" />
+      {/* Central 8-pointed star */}
+      <rect x="24" y="24" width="16" height="16" rx="2" transform="rotate(0 32 32)" stroke="currentColor" />
+      <rect x="24" y="24" width="16" height="16" rx="2" transform="rotate(45 32 32)" stroke="currentColor" />
+      <circle cx="32" cy="32" r="4" fill="currentColor" />
+      {/* Radiating sparkles & celebration motifs */}
+      <circle cx="32" cy="11" r="2" fill="currentColor" />
+      <circle cx="32" cy="53" r="2" fill="currentColor" />
+      <circle cx="11" cy="32" r="2" fill="currentColor" />
+      <circle cx="53" cy="32" r="2" fill="currentColor" />
+      <path d="M 18,18 L 22,22 M 42,42 L 46,46 M 46,18 L 42,22 M 18,46 L 22,42" strokeWidth="1.4" />
     </svg>
   );
 }

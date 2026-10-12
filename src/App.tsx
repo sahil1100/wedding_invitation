@@ -13,32 +13,32 @@ export default function App() {
   const [isEnvelopeOpen, setIsEnvelopeOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[#F4EFEA] text-[#2B2118] relative selection:bg-[#C5A869]/25 selection:text-[#2B2118]">
-      {/* 0. Sealed Envelope Preloader (Full Screen Cover Until Unlocked) */}
+    <div className="min-h-screen bg-[#051410] text-[#F7F4EC] relative selection:bg-[#D4AF37]/30 selection:text-[#FFF3D1]">
+      {/* 0. Sealed Royal Envelope Preloader (Full Screen Cover Until Unlocked) */}
       <EnvelopePreloader
         isOpen={isEnvelopeOpen}
         onOpened={() => setIsEnvelopeOpen(true)}
       />
 
-      {/* Desktop Ambient Soft Textured Backdrop */}
-      <div className="fixed inset-0 pointer-events-none z-0 hidden lg:block overflow-hidden opacity-60">
+      {/* Desktop Ambient Deep Emerald & Gold Glow Backdrop */}
+      <div className="fixed inset-0 pointer-events-none z-0 hidden lg:block overflow-hidden opacity-75">
         <div
           className="absolute -inset-10 bg-cover bg-center filter blur-3xl"
           style={{
             backgroundImage:
-              'radial-gradient(circle at 50% 30%, #EFE8DF 0%, #F5EFEB 50%, #ECE4D8 100%)',
+              'radial-gradient(circle at 50% 25%, #0F3329 0%, #061813 50%, #030C09 100%)',
           }}
         />
-        {/* Subtle geometric dot pattern on desktop wings */}
-        <div className="absolute inset-0 bg-[radial-gradient(#C5A869_1px,transparent_1px)] [background-size:28px_28px] opacity-20" />
+        {/* Subtle geometric gold lattice dot pattern on desktop wings */}
+        <div className="absolute inset-0 bg-[radial-gradient(#D4AF37_1px,transparent_1px)] [background-size:32px_32px] opacity-15" />
       </div>
 
-      {/* Primary Mobile-First Canvas: 390px–520px Column Centered */}
-      <main className="relative z-10 w-full max-w-[520px] mx-auto min-h-screen bg-[#FAF7F2] shadow-[0_0_60px_rgba(74,62,52,0.08),0_0_20px_rgba(197,168,105,0.05)] border-x border-[#E6DCCE]">
+      {/* Primary Mobile-First Canvas: Centered column with royal gilded borders */}
+      <main className="relative z-10 w-full max-w-[520px] mx-auto min-h-screen bg-[#061813] shadow-[0_0_80px_rgba(0,0,0,0.9),0_0_35px_rgba(212,175,55,0.12)] border-x border-[#184639]/70">
         {/* Film grain texture overlay */}
-        <div className="fixed inset-0 pointer-events-none film-grain z-50 opacity-25" />
+        <div className="fixed inset-0 pointer-events-none film-grain z-50 opacity-20" />
 
-        {/* 1. Hero Section */}
+        {/* 1. Hero Section (Groom's Side Royal Spotlight) */}
         <HeroSection />
 
         {/* 2. Alhamdulillah / Family Announcement */}
@@ -47,10 +47,10 @@ export default function App() {
         {/* 3. Sacred Quran Verse (Surah Ar-Rum 30:21) */}
         <QuranSection />
 
-        {/* 4. Scroll-Progress Timeline (3 Events: Mehndi, Engagement, Nikah) */}
+        {/* 4. Scroll-Progress Timeline (Friends Gathering 2, 3, 9 Nov & Nikah) */}
         <TimelineSection />
 
-        {/* 5. Live 3D Digit Flip Countdown (Targeting Nikah 14 Nov 2026, 9:00 AM) */}
+        {/* 5. Live 3D Digit Flip Countdown (Targeting 2 Nov 2026 Friends Gathering Kickoff) */}
         <CountdownSection />
 
         {/* 6. Barakah Dua Card */}
@@ -60,7 +60,7 @@ export default function App() {
         <FooterSection />
       </main>
 
-      {/* Persistent UI: Top Gold Reading Progress Bar */}
+      {/* Persistent UI: Top Gold Reading Progress Bar + Royal Music Control */}
       <PersistentUI />
     </div>
   );

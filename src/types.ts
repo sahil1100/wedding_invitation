@@ -12,7 +12,7 @@ export interface EventItem {
   mapQuery: string;
   mapCoordinates: { lat: number; lng: number };
   description: string;
-  iconType: 'mehndi' | 'engagement' | 'nikah' | 'walima';
+  iconType: 'mehndi' | 'engagement' | 'nikah' | 'walima' | 'friends';
 }
 
 export interface FamilyContact {
