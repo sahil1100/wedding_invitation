@@ -56,14 +56,14 @@ export const TimelineSection: React.FC = () => {
                 viewport={{ once: true, margin: '-60px' }}
                 transition={{
                   duration: 0.85,
-                  delay: idx * 0.15,
-                  ease: [0.22, 1, 0.36, 1],
+                  delay: idx * 0.12,
+                  ease: [0.16, 1, 0.3, 1],
                 }}
               >
                 {/* Timeline Dot Node (Antique Gold Star Ring) */}
                 <div className="absolute -left-[25px] sm:-left-[33px] mt-1.5 z-10">
                   <motion.div
-                    className="w-8 h-8 rounded-full bg-[#FAF7F2] border-2 border-[#B89758] flex items-center justify-center shadow-md group-hover:border-[#8C6E36] transition-colors"
+                    className="w-8 h-8 rounded-full bg-[#FAF7F2] border-2 border-[#B89758] flex items-center justify-center shadow-md group-hover:border-[#8C6E36] group-hover:scale-110 transition-all duration-300"
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
@@ -71,7 +71,7 @@ export const TimelineSection: React.FC = () => {
                       type: 'spring',
                       stiffness: 300,
                       damping: 18,
-                      delay: idx * 0.2 + 0.1,
+                      delay: idx * 0.15 + 0.1,
                     }}
                   >
                     <div className="w-2.5 h-2.5 rounded-full bg-gradient-to-tr from-[#7A5F28] to-[#D4BC8B]" />
@@ -79,7 +79,7 @@ export const TimelineSection: React.FC = () => {
                 </div>
 
                 {/* Event Card Content */}
-                <div className="ml-4 sm:ml-6 w-full p-4 sm:p-5 rounded-2xl bg-[#FDFBF7] border border-[#E6DCCE] shadow-[0_6px_25px_rgba(74,62,52,0.06)] hover:border-[#B89758]/50 transition-all duration-300">
+                <div className="ml-4 sm:ml-6 w-full p-4 sm:p-5 rounded-2xl bg-[#FDFBF7] border border-[#E6DCCE] shadow-[0_6px_25px_rgba(74,62,52,0.06)] hover:border-[#B89758]/60 hover:shadow-[0_10px_30px_rgba(184,151,88,0.12)] hover:-translate-y-0.5 transition-all duration-300">
                   <div className="flex items-center justify-between gap-2 border-b border-[#E8DFC8] pb-1.5 mb-2">
                     <span className="font-arabic text-sm text-[#8C6E36] font-medium">
                       {event.arabicTitle}

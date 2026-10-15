@@ -5,6 +5,7 @@ import { AnnouncementSection } from './components/AnnouncementSection';
 import { QuranSection } from './components/QuranSection';
 import { TimelineSection } from './components/TimelineSection';
 import { CountdownSection } from './components/CountdownSection';
+import { FamilyNoteSection } from './components/FamilyNoteSection';
 import { DuaSection } from './components/DuaSection';
 import { FooterSection } from './components/FooterSection';
 import { PersistentUI } from './components/PersistentUI';
@@ -47,10 +48,13 @@ export default function App() {
         {/* 3. Sacred Quran Verse (Surah Ar-Rum 30:21) */}
         <QuranSection />
 
-        {/* 4. Scroll-Progress Timeline (3 Events: Mehndi, Engagement, Nikah) */}
+        {/* 4. Scroll-Progress Timeline */}
         <TimelineSection />
 
-        {/* 5. Live 3D Digit Flip Countdown (Targeting Nikah 14 Nov 2026, 9:00 AM) */}
+        {/* 5. A Note From The Family ("Humari pyari ki shadi me jarur aana") */}
+        <FamilyNoteSection />
+
+        {/* 6. Live 3D Digit Flip Countdown (Targeting Nikah 14 Nov 2026, 9:00 AM) */}
         <CountdownSection />
 
         {/* 6. Barakah Dua Card */}

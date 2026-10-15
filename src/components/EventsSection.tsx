@@ -21,6 +21,7 @@ const EventIconComponent: React.FC<{ type: EventItem['iconType'] }> = ({ type })
       return <EngagementRingsIcon className="w-10 h-10 text-[#F2DA8B]" />;
     case 'nikah':
       return <MosqueDomeIcon className="w-10 h-10 text-[#F2DA8B]" />;
+    case 'gathering':
     case 'walima':
       return <FestiveLanternIcon className="w-10 h-10 text-[#C9A227]" />;
     default:

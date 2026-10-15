@@ -11,7 +11,7 @@ export const RsvpSection: React.FC = () => {
     phone: '',
     attending: 'attending',
     guestsCount: 1,
-    events: ['nikah', 'walima'],
+    events: ['nikah'],
     message: '',
   });
 

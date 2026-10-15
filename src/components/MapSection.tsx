@@ -36,21 +36,22 @@ export const MapSection: React.FC = () => {
         </h2>
 
         {/* Event Selector Pill Tabs */}
-        <div className="flex items-center justify-center gap-1.5 p-1 rounded-full bg-[#2A1119] border border-[#C9A227]/30 max-w-sm mx-auto mb-6">
+        <div className="flex items-center justify-center gap-1.5 p-1 rounded-full bg-[#2A1119] border border-[#C9A227]/30 max-w-md mx-auto mb-6">
           {CONFIG.events.map((evt) => {
             const isActive = evt.id === selectedEventId;
+            const tabLabel = evt.id === 'nikah' ? 'Nikah' : evt.title.split(' ')[0];
             return (
               <button
                 key={evt.id}
                 type="button"
                 onClick={() => setSelectedEventId(evt.id)}
-                className={`flex-1 py-1.5 px-2 rounded-full font-ui text-[11px] uppercase tracking-wider transition-all duration-300 ${
+                className={`flex-1 py-1.5 px-2 rounded-full font-ui text-[10px] sm:text-[11px] uppercase tracking-wider transition-all duration-300 ${
                   isActive
                     ? 'bg-gradient-to-r from-[#8A6A12] to-[#C9A227] text-[#1A0910] font-semibold shadow-md'
                     : 'text-[#EADFC8]/75 hover:text-[#FAF6F0]'
                 }`}
               >
-                {evt.title.split(' ')[0]}
+                {tabLabel}
               </button>
             );
           })}

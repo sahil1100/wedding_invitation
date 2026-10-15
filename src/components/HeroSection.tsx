@@ -93,13 +93,24 @@ export const HeroSection: React.FC = () => {
     };
   }, []);
 
-  const groomLetters = CONFIG.couple.groom.fullName.split('');
-  const brideLetters = CONFIG.couple.bride.fullName.split('');
+  const [tilt, setTilt] = React.useState({ x: 0, y: 0 });
+
+  const handlePointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = (e.clientX - rect.left) / rect.width - 0.5;
+    const y = (e.clientY - rect.top) / rect.height - 0.5;
+    setTilt({ x: y * -4, y: x * 4 });
+  };
+
+  const handlePointerLeave = () => {
+    setTilt({ x: 0, y: 0 });
+  };
 
   return (
     <section
       id="hero"
       className="relative flex flex-col items-center justify-center px-3 sm:px-4 py-4 sm:py-5 overflow-hidden text-center"
+      style={{ perspective: 1200 }}
     >
       {/* Soft warm linen atmosphere with gentle champagne ambient lighting */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -123,8 +134,17 @@ export const HeroSection: React.FC = () => {
         className="absolute inset-0 pointer-events-none z-10 w-full h-full"
       />
 
-      {/* Main Arch-Framed Container - Soft Alabaster Ivory Card */}
-      <div className="relative z-20 w-full max-w-[480px] mx-auto flex flex-col items-center justify-center px-4 py-5 sm:py-6 bg-[#FDFBF7]/95 backdrop-blur-md rounded-3xl shadow-[0_15px_50px_rgba(74,62,52,0.07),0_0_20px_rgba(184,151,88,0.1)] border border-[#E6DCCE]">
+      {/* Main Arch-Framed Container - Soft Alabaster Ivory Card with 3D Spring Tilt */}
+      <motion.div
+        onPointerMove={handlePointerMove}
+        onPointerLeave={handlePointerLeave}
+        animate={{ rotateX: tilt.x, rotateY: tilt.y }}
+        transition={{ type: 'spring', damping: 25, stiffness: 120 }}
+        style={{ transformStyle: 'preserve-3d' }}
+        className="relative z-20 w-full max-w-[480px] mx-auto flex flex-col items-center justify-center px-4 py-5 sm:py-6 bg-[#FDFBF7]/95 backdrop-blur-md rounded-3xl shadow-[0_15px_50px_rgba(74,62,52,0.07),0_0_20px_rgba(184,151,88,0.1)] border border-[#E6DCCE] overflow-hidden transition-shadow hover:shadow-[0_20px_60px_rgba(74,62,52,0.12),0_0_30px_rgba(184,151,88,0.18)]"
+      >
+        {/* Luxury Gold Foil Light Reflection Sweep */}
+        <div className="foil-shimmer-sweep" />
         {/* Hand-drawn SVG Arabesque Frame with antique champagne gold */}
         <svg
           className="absolute inset-0 w-full h-full pointer-events-none overflow-visible"
@@ -173,12 +193,18 @@ export const HeroSection: React.FC = () => {
           />
         </svg>
 
-        {/* Top Sacred Symbol & Monogram */}
+        {/* Top Sacred Symbol & Monogram with Breathing Float */}
         <motion.div
           className="mb-2"
           initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.9, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+          animate={{
+            opacity: 1,
+            scale: [1, 1.025, 1],
+          }}
+          transition={{
+            opacity: { duration: 0.9, delay: 0.3, ease: [0.16, 1, 0.3, 1] },
+            scale: { repeat: Infinity, duration: 6, ease: 'easeInOut' },
+          }}
         >
           <MonogramRoundel size={72} className="w-16 h-16 sm:w-18 sm:h-18" />
         </motion.div>
@@ -188,7 +214,7 @@ export const HeroSection: React.FC = () => {
           className="mb-2"
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.1, delay: 0.6 }}
+          transition={{ duration: 1.0, delay: 0.55, ease: [0.16, 1, 0.3, 1] }}
         >
           <h1
             dir="rtl"
@@ -207,7 +233,7 @@ export const HeroSection: React.FC = () => {
           className="flex items-center justify-center gap-2 mb-1.5"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.9, duration: 0.8 }}
+          transition={{ delay: 0.85, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
         >
           <KhatimStar className="w-3.5 h-3.5 text-[#B89758]" stroke="#B89758" />
           <span className="font-ui text-[10px] sm:text-[11px] uppercase tracking-[0.28em] text-[#8C6E36] font-medium">
@@ -220,60 +246,87 @@ export const HeroSection: React.FC = () => {
         <div className="my-1.5 sm:my-2 w-full px-2">
           {/* Bride's Name First */}
           <motion.h2
-            className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-[34px] text-[#2B2118] font-normal tracking-[0.04em] leading-tight whitespace-nowrap overflow-hidden text-ellipsis"
+            className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-[34px] text-[#2B2118] font-normal tracking-[0.04em] leading-tight whitespace-nowrap overflow-hidden text-ellipsis hover:scale-[1.01] transition-transform duration-300"
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.1, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.9, delay: 1.0, ease: [0.16, 1, 0.3, 1] }}
           >
             {CONFIG.couple.bride.fullName}
           </motion.h2>
 
-          <p className="font-ui text-[11px] sm:text-xs text-[#8C6E36] tracking-wider mt-0.5 font-medium">
+          <motion.p
+            className="font-ui text-[11px] sm:text-xs text-[#8C6E36] tracking-wider mt-0.5 font-medium"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2, duration: 0.8 }}
+          >
             {CONFIG.couple.bride.parentsTitle}
-          </p>
+          </motion.p>
 
           {/* Gold Ampersand Ligature */}
           <motion.div
             className="my-1 flex items-center justify-center gap-3 sm:gap-4"
-            initial={{ opacity: 0, scale: 0.5 }}
+            initial={{ opacity: 0, scale: 0.6 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 1.4, duration: 0.7 }}
+            transition={{ delay: 1.35, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
             <span className="h-px w-10 sm:w-16 bg-gradient-to-r from-transparent to-[#B89758]" />
-            <span className="font-display italic text-xl sm:text-2xl gold-foil-text font-normal">
+            <motion.span
+              className="font-display italic text-xl sm:text-2xl gold-foil-text font-normal cursor-default select-none"
+              whileHover={{ scale: 1.2, rotate: 6 }}
+              transition={{ type: 'spring', stiffness: 350, damping: 15 }}
+            >
               &amp;
-            </span>
+            </motion.span>
             <span className="h-px w-10 sm:w-16 bg-gradient-to-l from-transparent to-[#B89758]" />
           </motion.div>
 
           {/* Groom's Name: Mo. Sahil Doi */}
           <motion.h2
-            className="font-display text-xl sm:text-2xl md:text-3xl lg:text-[30px] text-[#4A3E34] font-normal tracking-[0.03em] leading-tight whitespace-nowrap overflow-hidden text-ellipsis"
+            className="font-display text-xl sm:text-2xl md:text-3xl lg:text-[30px] text-[#4A3E34] font-normal tracking-[0.03em] leading-tight whitespace-nowrap overflow-hidden text-ellipsis hover:scale-[1.01] transition-transform duration-300"
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.6, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.9, delay: 1.5, ease: [0.16, 1, 0.3, 1] }}
           >
             {CONFIG.couple.groom.fullName}
           </motion.h2>
+
+          <motion.p
+            className="font-ui text-[11px] sm:text-xs text-[#8C6E36] tracking-wider mt-0.5 font-medium"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.7, duration: 0.8 }}
+          >
+            {CONFIG.couple.groom.parentsTitle}
+          </motion.p>
         </div>
 
         <ArabesqueDivider className="w-44 h-5 my-1.5 opacity-60" />
 
-        {/* 3. The Date & Venue Highlights */}
+        {/* Quranic Verse: Surah An-Naba 78:8 */}
         <motion.div
-          className="mt-0.5 space-y-0.5"
+          className="mt-1 space-y-0.5"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 2.0, duration: 0.9 }}
+          transition={{ delay: 1.9, duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
         >
-          <p className="font-ui text-xs sm:text-sm text-[#8C6E36] tracking-[0.2em] uppercase font-medium">
-            Insha Allah · 12 — 14 November 2026
+          {/* Arabic Calligraphy */}
+          <p
+            dir="rtl"
+            lang="ar"
+            className="font-arabic text-2xl sm:text-3xl text-[#2B2118] tracking-wide leading-relaxed drop-shadow-[0_1px_3px_rgba(184,151,88,0.15)] my-0.5"
+          >
+            {CONFIG.islamicContent.azwajaArabic}
           </p>
-          <p className="font-display text-base sm:text-lg text-[#32271E] tracking-wide">
-            Solemnization of Nikah &amp; Wedding Ceremonies
+
+          {/* Transliteration */}
+          <p className="font-display italic text-xs sm:text-sm text-[#8C6E36] tracking-wider">
+            ({CONFIG.islamicContent.azwajaTransliteration})
           </p>
-          <p className="font-ui text-xs text-[#6B5D52] tracking-wider font-light">
-            Himatnagar, Gujarat
+
+          {/* Meaning / Translation */}
+          <p className="font-display text-sm sm:text-base text-[#4A3E34] tracking-wide font-normal">
+            &ldquo;{CONFIG.islamicContent.azwajaEnglish}&rdquo;
           </p>
         </motion.div>
 
@@ -284,7 +337,7 @@ export const HeroSection: React.FC = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1, y: [0, 6, 0] }}
           transition={{
-            opacity: { delay: 2.4, duration: 0.8 },
+            opacity: { delay: 2.3, duration: 0.8 },
             y: { repeat: Infinity, duration: 2.2, ease: 'easeInOut' },
           }}
           aria-label="Scroll to wedding announcement"
@@ -292,7 +345,7 @@ export const HeroSection: React.FC = () => {
           <span className="font-ui text-[9px] uppercase tracking-[0.25em]">Scroll to Explore</span>
           <ChevronDown className="w-4 h-4" />
         </motion.a>
-      </div>
+      </motion.div>
     </section>
   );
 };

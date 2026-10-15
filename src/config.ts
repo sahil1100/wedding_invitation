@@ -43,8 +43,24 @@ export const CONFIG = {
   // NIKAH DATE FOR COUNTDOWN (Sat 14 Nov 2026, 9:00 AM)
   nikahDateIso: "2026-11-14T09:00:00",
 
-  // WEDDING EVENTS (3 Events Only)
+  // WEDDING EVENTS
   events: [
+    {
+      id: "friends-gathering",
+      title: "Friends Gathering",
+      arabicTitle: "لِقَاءُ الأَصْدِقَاءِ",
+      dateStr: "From Monday, 2nd November 2026",
+      isoDate: "2026-11-02T21:00:00",
+      timeStr: "9:00 PM onwards",
+      venueName: "Anjuman Street, Pologround",
+      areaCity: "Himatnagar, Gujarat",
+      dressCode: "Festive Smart Casual",
+      dressColorNote: "Celebratory Evening Wear",
+      mapQuery: "Pologround, Himatnagar, Gujarat",
+      mapCoordinates: { lat: 23.5979, lng: 72.9698 },
+      description: "An evening of joyful conversations, shared laughter, and cherished fellowship with close friends as the festivities begin.",
+      iconType: "gathering",
+    },
     {
       id: "mehndi",
       title: "Mehndi Celebration",
@@ -115,7 +131,7 @@ export const CONFIG = {
     azwajaArabic: "وَخَلَقْنَاكُمْ أَزْوَاجًا",
     azwajaTransliteration: "Wa-khalaqnakum azwaja",
     azwajaEnglish: "And We created you in pairs",
-    azwajaReference: "Surah An-Naba · 78:8",
+    // azwajaReference: "Surah An-Naba · 78:8",
 
     quranArabic: "وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً",
     quranReference: "Surah Ar-Rum · 30:21",
@@ -175,5 +191,16 @@ export const CONFIG = {
     src: "/assets/river_flows_in_you.mp3",
     // Bollywood alternative also included: "/assets/bollywood_romantic_melody.mp3"
     targetVolume: 0.5,
+  },
+
+  // A NOTE FROM THE FAMILY (Special Message from Children / Family)
+  familyNote: {
+    sectionSubtitle: "A NOTE FROM THE FAMILY",
+    familyHeader: "FROM THE PANCHBHAIYA FAMILY",
+    quoteLine1: "Humari pyari ki shadi me",
+    quoteLine2: "jarur jarur aana",
+    emoji: "❤️",
+    withLoveLabel: "WITH LOVE",
+    names: ["Rahin", "Rida"],
   },
 };
